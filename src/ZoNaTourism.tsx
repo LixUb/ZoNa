@@ -86,17 +86,20 @@ const ZonaTourismReplica = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-xl shadow-2xl' : 'bg-white/90 backdrop-blur-md'
-      }`}>
-        <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 relative overflow-hidden" style={{
+        backgroundImage: 'url("/images/navbar.png")',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        minHeight: '100px'
+      }}>
+        {/* Background overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/10"></div>
+        
+        <nav className="container mx-auto px-6 py-4 flex justify-between items-center relative z-10">
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={() => showSection('home')}>
             <div className="text-4xl font-black">
-              <span className="text-yellow-500">Z</span>
-              <span className="text-blue-500">o</span>
-              <span className="text-gray-600">N</span>
-              <span className="text-blue-500">a</span>
             </div>
           </div>
 
@@ -108,8 +111,8 @@ const ZonaTourismReplica = () => {
                   onClick={() => showSection(item.id)}
                   className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                     activeSection === item.id
-                      ? 'bg-blue-500 text-white shadow-lg transform scale-105'
-                      : 'text-gray-600 hover:text-blue-500 hover:bg-blue-50'
+                      ? 'bg-white text-blue-600 shadow-lg transform scale-105'
+                      : 'text-white hover:text-yellow-300 hover:bg-white/20 backdrop-blur-sm'
                   }`}
                 >
                   {item.label}
@@ -120,7 +123,7 @@ const ZonaTourismReplica = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-white/20 transition-colors text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -151,7 +154,7 @@ const ZonaTourismReplica = () => {
       </header>
 
       {/* Main Content */}
-      <main className="pt-20">
+      <main className="pt-19">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 text-white py-20 overflow-hidden relative">
           <div className="absolute inset-0 bg-black/10"></div>
@@ -179,7 +182,7 @@ const ZonaTourismReplica = () => {
                 <div className="bg-white/20 backdrop-blur-lg rounded-3xl p-8 border border-white/30 shadow-2xl">
                   <div className="bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl h-64 flex items-center justify-center overflow-hidden shadow-inner">
                     <div className="w-full h-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-white font-bold text-2xl">
-                      <img src="images/bare.jpg" alt="" />
+                      <img src="images/bare.jpg" alt="" className="w-full h-full object-cover" />
                     </div>
                   </div>
                 </div>
@@ -254,28 +257,28 @@ const ZonaTourismReplica = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <RecommendationCard
                 title="Montigo Resort Nongsa"
-                image={'images/montigo-resorts-nongsa.jpg'}
-                description="📍 2.3 km from Hang Nadim Intl. Airport
-                ⛴️ 1.1 km from Batam Centre Ferry Port
-                🏖️ 5 km from Nagoya Business Beach"
+                image={'/images/montigo-resorts-nongsa.jpg'}
+                description="🛏️ 2.3 km from Hang Nadim Intl. Airport
+⛴️ 1.1 km from Batam Centre Ferry Port
+🏖️ 5 km from Nagoya Business Beach"
                 highlight="A resort with stunning ocean views"
                 gradient="bg-gradient-to-br from-blue-500 to-purple-600"
               />
               <RecommendationCard
                 title="Pulau Penyengat"
-                image={'images/masjid_penyengat.jpg'}                
-                description="📍 2 km from Batam Pinang
-                ⛴️ 1 hour from Harbour Bay Ferry Port
-                🏖️ 1 hour from Kijang Ferry Port"
+                image={'/images/masjid_penyengat.jpg'}                
+                description="🛏️ 2 km from Batam Pinang
+⛴️ 1 hour from Harbour Bay Ferry Port
+🏖️ 1 hour from Kijang Ferry Port"
                 highlight="Your go-to for historical island exploration"
                 gradient="bg-gradient-to-br from-green-500 to-blue-500"
               />
               <RecommendationCard
                 title="Luti Gendang"
-                image={'images/luti-gendang.jpg'}
+                image={'/images/luti-gendang.jpg'}
                 description="🍽️ Fried dough filled with rich spices
-                😋 Savory, a good discovery for first-timers
-                🛒 Available at most traditional markets"
+😋 Savory, a good discovery for first-timers
+🛒 Available at most traditional markets"
                 highlight="Authentic traditional cuisine you must try"
                 gradient="bg-gradient-to-br from-orange-500 to-red-500"
               />
@@ -311,9 +314,7 @@ const ZonaTourismReplica = () => {
               </div>
               
               <div className="text-center lg:order-2">
-                <div className="w-32 h-32 mx-auto bg-yellow-400 rounded-full flex items-center justify-center text-6xl shadow-2xl transform hover:rotate-12 transition-transform duration-300">
-                  🚌
-                </div>
+                <img src="images/bus.png" alt="" />
               </div>
             </div>
           </div>
@@ -336,10 +337,11 @@ const ZonaTourismReplica = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
               <ReviewCard
-                initial="H"
                 name="Himmel"
                 review="The website is very clear, helpful, and not confusing. There is also a recommendation part to show popular things, which helped me to make up my plans."
                 bgColor="bg-gradient-to-r from-blue-500 to-blue-600"
+                initial="H"
+                avatar
               />
               <ReviewCard
                 initial="T"
