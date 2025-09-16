@@ -85,78 +85,63 @@ const ZonaTourismReplica = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 relative overflow-hidden" style={{
-        backgroundImage: 'url("/images/navbar.png")',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        minHeight: '100px'
-      }}>
-        {/* Background overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/10"></div>
-        
-        <nav className="container mx-auto px-6 py-4 flex justify-between items-center relative z-10">
-          {/* Logo */}
-          <div className="flex items-center cursor-pointer" onClick={() => showSection('home')}>
-            <div className="text-4xl font-black">
-            </div>
-          </div>
+       {/* Header */}
+  <header
+    className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 relative overflow-hidden"
+    style={{
+      backgroundImage: 'url("/images/navbar.png")',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      minHeight: '100px'
+    }}
+  >
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-black/10"></div>
 
-          {/* Desktop Navigation */}
-          <ul className="hidden md:flex gap-2">
-            {navigationItems.map((item) => (
-              <li key={item.id}>
-                <button
-                  onClick={() => showSection(item.id)}
-                  className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                    activeSection === item.id
-                      ? 'bg-white text-blue-600 shadow-lg transform scale-105'
-                      : 'text-white hover:text-yellow-300 hover:bg-white/20 backdrop-blur-sm'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              </li>
-            ))}
-          </ul>
+    {/* Navbar Full Width */}
+    <nav className="w-full px-6 py-4 flex justify-between items-center relative z-10">
+      {/* Logo */}
+      <div
+        className="flex items-center cursor-pointer"
+        onClick={() => showSection('home')}
+      >
+        <div className="text-4xl font-black">
+        </div>
+      </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 rounded-lg hover:bg-white/20 transition-colors text-white"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </nav>
+      {/* Desktop Navigation */}
+      <ul className="hidden md:flex gap-2">
+        {navigationItems.map((item) => (
+          <li key={item.id}>
+            <button
+              onClick={() => showSection(item.id)}
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                activeSection === item.id
+                  ? 'bg-white text-blue-600 shadow-lg transform scale-105'
+                  : 'text-white hover:text-yellow-300 hover:bg-white/20 backdrop-blur-sm'
+              }`}
+            >
+              {item.label}
+            </button>
+          </li>
+        ))}
+      </ul>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-xl border-t shadow-2xl">
-            <ul className="p-4 space-y-2">
-              {navigationItems.map((item) => (
-                <li key={item.id}>
-                  <button
-                    onClick={() => showSection(item.id)}
-                    className={`w-full text-left px-4 py-3 rounded-xl font-medium transition-all ${
-                      activeSection === item.id
-                        ? 'bg-blue-500 text-white'
-                        : 'text-gray-600 hover:bg-blue-50'
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </header>
+      {/* Mobile Menu Button */}
+      <button
+        className="md:hidden p-2 rounded-lg hover:bg-white/20 transition-colors text-white"
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      >
+        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
+    </nav>
+  </header>
 
       {/* Main Content */}
       <main className="pt-19">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 text-white py-20 overflow-hidden relative">
+        <section className="bg-gradient-to-b from-[#58a0c8] via-[#3b6a94] to-[#113F67] text-white py-20 overflow-hidden relative">
           <div className="absolute inset-0 bg-black/10"></div>
           <div className="container mx-auto px-6 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -193,7 +178,7 @@ const ZonaTourismReplica = () => {
 
         {/* Why ZoNa Section */}
         <section className="py-20 bg-gradient-to-br from-white to-blue-50">
-          <div className="container mx-auto px-6">
+          <div className="p-10 rounded-2xl shadow-lg bg-white text-center">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-black text-blue-600 mb-4">
                 Why ZoNa?
@@ -203,31 +188,30 @@ const ZonaTourismReplica = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-2 gap-8">
               {[
                 {
-                  icon: <Award className="w-8 h-8" />,
+                  icon: <img src="images/top.png" alt="" />,
                   title: 'Top-Rated Attraction',
-                  desc: 'From luxurious resorts to vibrant markets, we\'ve gathered all of it.',
-                  color: 'bg-yellow-500'
+                  desc: "From beaches to cultural gems, we’ve gathered it all.",
                 },
                 {
-                  icon: <Home className="w-8 h-8" />,
+                  icon: <img src="images/comfort.png" alt="" />,
                   title: 'Stay Comfortably',
-                  desc: 'Choose your home away from home that suits your preferences.',
-                  color: 'bg-blue-500'
+                  desc: 'Find hotels and home-stays that suit your preferences.',
+                  
                 },
                 {
-                  icon: <Utensils className="w-8 h-8" />,
+                  icon: <img src="images/food.png" alt="" />,
                   title: 'Local Cuisines',
-                  desc: 'Discover traditional local cafes to fresh seafood restaurants.',
-                  color: 'bg-red-500'
+                  desc: 'Routes recommendation for you to travel easily.',
+                  
                 },
                 {
-                  icon: <Car className="w-8 h-8" />,
+                  icon: <img src="images/travel.png" alt="" />,
                   title: 'Trip Everywhere',
                   desc: 'Become a local; we help you to travel easily and efficiently.',
-                  color: 'bg-green-500'
+            
                 }
               ].map((feature, index) => (
                 <div key={index} className="text-center group hover:transform hover:scale-105 transition-all duration-300">
@@ -286,39 +270,53 @@ const ZonaTourismReplica = () => {
           </div>
         </section>
 
-        {/* GoZoNa Section */}
-        <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-800 text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/20"></div>
-          <div className="container mx-auto px-6 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="lg:order-1">
-                <h2 className="text-4xl font-black mb-8">
-                  Explore Batam with <span className="text-yellow-300">GoZoNa</span>
-                </h2>
-                <p className="text-2xl mb-6 text-blue-100 font-light">
-                  Your seamless way to explore Batam
-                </p>
-                <p className="mb-6 text-blue-100 leading-relaxed text-lg">
-                  Discover top destinations, comfy rides, and curated experiences - all in one trip.
-                </p>
-                <p className="mb-8 text-blue-100 leading-relaxed">
-                  By <span className="font-bold text-yellow-300">GoZoNa</span>, we collaborate with the government and local partners, delivering a comfortable, authentic cultural journey.
-                </p>
-                <button
-                  onClick={() => showSection('go-zona')}
-                  className="bg-yellow-400 text-blue-800 px-8 py-4 rounded-full font-bold hover:bg-yellow-300 transition-all duration-300 shadow-2xl transform hover:scale-105"
-                >
-                  Explore GoZoNa
-                  <ChevronRight className="inline ml-2" size={20} />
-                </button>
-              </div>
-              
-              <div className="text-center lg:order-2">
-                <img src="images/bus.png" alt="" />
-              </div>
-            </div>
-          </div>
-        </section>
+        <section className="py-20 bg-white text-gray-800 relative">
+  <div className="container mx-auto px-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      
+      {/* Bus di kiri */}
+      <div className="text-center lg:text-left">
+        <img 
+          src="images/bus.png" 
+          alt="GoZoNa Bus" 
+          className="mx-auto lg:mx-0 w-[500px] lg:w-[600px] drop-shadow-2xl"
+        />
+      </div>
+
+      {/* Teks di kanan */}
+      <div>
+        <h2 className="text-4xl font-extrabold mb-4 text-gray-900">
+          Explore Batam with{" "}
+          <span className="text-yellow-500">Go</span>
+          <span className="text-blue-600">ZoNa</span>
+        </h2>
+        <p className="text-lg text-gray-600 mb-8">
+          Your seamless way to explore Batam
+        </p>
+
+        <p className="text-gray-700 text-lg leading-relaxed mb-6">
+          Discover top destinations, comfy rides, and curated experiences —{" "}
+          <span className="font-semibold">all in one trip.</span>
+        </p>
+        
+        <p className="text-gray-700 leading-relaxed mb-8">
+          By{" "}
+          <span className="text-yellow-500 font-semibold">Go</span>
+          <span className="text-blue-600 font-semibold">ZoNa</span>, we collaborate with the
+          government and local partners, delivering a comfortable, authentic cultural journey.
+        </p>
+
+        <button
+          onClick={() => showSection("go-zona")}
+          className="bg-blue-800 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-all duration-300 shadow-lg"
+        >
+          Explore
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
 
         {/* Advertisement Section */}
         <section className="py-16 bg-gradient-to-r from-gray-100 to-gray-200">
