@@ -175,12 +175,13 @@ const ZonaTourismReplica = () => {
             </div>
           </div>
         </section>
+        
 
         {/* Why ZoNa Section */}
         <section className="py-20 bg-gradient-to-br from-white to-blue-50">
           <div className="p-10 rounded-2xl shadow-lg bg-white text-center">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-black text-blue-600 mb-4">
+              <h2 className="text-4xl bg-gradient-to-r from-[#113F67] to-[#58A0C8] bg-clip-text text-transparent font-extrabold">
                 Why ZoNa?
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -230,10 +231,10 @@ const ZonaTourismReplica = () => {
         <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-black text-blue-600 mb-4">
+              <h2 className="text-4xl bg-gradient-to-r from-[#113F67] to-[#58A0C8] bg-clip-text text-transparent font-extrabold mb-4">
                 Recommendation
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-xl text-[#113F67] max-w-2xl mx-auto">
                 Try the experience, then allow us to know your opinion
               </p>
             </div>
@@ -270,53 +271,69 @@ const ZonaTourismReplica = () => {
           </div>
         </section>
 
-        <section className="py-20 bg-white text-gray-800 relative">
+<section className="py-20 bg-white text-gray-800 relative">
   <div className="container mx-auto px-6">
+
+    {/* Judul utama di tengah atas */}
+    <div className="text-center mb-12">
+      <h2 className="text-4xl font-extrabold mb-4 text-gray-900">
+        <span className="bg-gradient-to-r from-[#113F67] to-[#58A0C8] bg-clip-text text-transparent">
+          Explore Batam with{" "}
+        </span>
+        <span className="text-[#113F67]">Go</span>
+        <span className="text-[#FBC408]">Z</span>
+        <span className="text-[#B48D47]">o</span>
+        <span className="text-[#4553A6]">N</span>
+        <span className="text-[#0318ED]">a</span>
+      </h2>
+      <p className="text-1xl font-bold text-[#113F67]">
+        Your seamless way to explore Batam
+      </p>
+    </div>
+
+    {/* Konten grid */}
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       
       {/* Bus di kiri */}
       <div className="text-center lg:text-left">
-        <img 
-          src="images/bus.png" 
-          alt="GoZoNa Bus" 
-          className="mx-auto lg:mx-0 w-[500px] lg:w-[600px] drop-shadow-2xl"
-        />
-      </div>
+  <img 
+    src="images/bus.png" 
+    alt="GoZoNa Bus" 
+    className="w-full h-auto max-w-full drop-shadow-2xl mx-auto lg:mx-0 object-contain"
+  />
+</div>
 
       {/* Teks di kanan */}
       <div>
-        <h2 className="text-4xl font-extrabold mb-4 text-gray-900">
-          Explore Batam with{" "}
-          <span className="text-yellow-500">Go</span>
-          <span className="text-blue-600">ZoNa</span>
-        </h2>
-        <p className="text-lg text-gray-600 mb-8">
-          Your seamless way to explore Batam
-        </p>
-
-        <p className="text-gray-700 text-lg leading-relaxed mb-6">
+        <p className="text-[#113F67] text-lg leading-relaxed mb-6 text-center lg:text-left font-semibold">
           Discover top destinations, comfy rides, and curated experiences —{" "}
-          <span className="font-semibold">all in one trip.</span>
+          <span className="font-extrabold">all in one trip.</span>
         </p>
         
-        <p className="text-gray-700 leading-relaxed mb-8">
+        <p className="text-[#113F67] leading-relaxed mb-8 text-center lg:text-left text-xl">
           By{" "}
-          <span className="text-yellow-500 font-semibold">Go</span>
-          <span className="text-blue-600 font-semibold">ZoNa</span>, we collaborate with the
+          <span className="text-[#113F67] font-semibold">Go</span>
+          <span className="text-[#FBC408] font-semibold">Z</span>
+          <span className="text-[#B48D47] font-semibold">o</span>
+          <span className="text-[#4553A6] font-semibold">N</span>
+          <span className="text-[#0318ED] font-semibold">a</span>, we collaborate with the
           government and local partners, delivering a comfortable, authentic cultural journey.
         </p>
 
-        <button
-          onClick={() => showSection("go-zona")}
-          className="bg-blue-800 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-all duration-300 shadow-lg"
-        >
-          Explore
-        </button>
+        <div className="text-center lg:text-left">
+          <button
+            onClick={() => showSection("go-zona")}
+            className="bg-gradient-to-r from-[#113F67] to-[#58A0C8] text-white px-8 py-4 rounded-full font-bold hover:opacity-90 transition-all duration-300 shadow-lg"
+          >
+            Explore
+          </button>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
+
 
         {/* Advertisement Section */}
         <section className="py-16 bg-gradient-to-r from-gray-100 to-gray-200">
